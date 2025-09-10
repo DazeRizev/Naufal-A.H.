@@ -5,40 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Biodata Naufal Aprilimo</title>
   <style>
+    /* Tema dasar */
     :root {
-      --bg: #f9fafb;
-      --text: #1e293b;
-      --card: #ffffff;
-      --primary: #3b82f6;
+      --bg: #0b0b12;
+      --card: #1a1a24;
+      --text: #f5f3ff;
+      --primary: #7c3aed;   /* ungu elegan */
+      --accent: #a78bfa;    /* ungu muda */
     }
-    body.dark {
-      --bg: #0f172a;
-      --text: #f1f5f9;
-      --card: #1e293b;
-      --primary: #60a5fa;
-    }
-
     body {
       margin: 0;
       font-family: "Poppins", sans-serif;
-      background: var(--bg);
+      background: linear-gradient(135deg, #0b0b12, #1a1a24, #0f0f1a);
       color: var(--text);
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      transition: background 0.4s, color 0.4s;
+      overflow-x: hidden;
     }
 
     .profile-container {
       display: flex;
       background: var(--card);
       border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 0 25px rgba(124, 58, 237, 0.5);
       padding: 25px;
-      width: 780px;
-      animation: fadeIn 1s ease-in-out;
+      width: 820px;
       position: relative;
+      animation: fadeIn 1.2s ease-out;
     }
 
     .profile-img {
@@ -52,8 +47,13 @@
       width: 180px;
       height: 180px;
       object-fit: cover;
-      border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.6);
+      border: 3px solid var(--accent);
+      transition: transform 0.4s;
+    }
+    .profile-img img:hover {
+      transform: scale(1.08);
     }
 
     .profile-info {
@@ -63,61 +63,63 @@
 
     .profile-info h2 {
       margin: 0;
-      font-size: 28px;
+      font-size: 30px;
       color: var(--primary);
+      text-shadow: 0 0 10px rgba(124,58,237,0.7);
     }
 
     .profile-info p {
       margin: 5px 0;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .description {
       margin-top: 15px;
       font-style: italic;
+      color: var(--accent);
     }
 
     #clock {
       margin-top: 15px;
       font-weight: bold;
       font-size: 18px;
-      color: var(--primary);
+      color: var(--accent);
+      text-shadow: 0 0 8px rgba(167,139,250,0.8);
     }
 
     .btn {
       margin-top: 15px;
-      padding: 8px 16px;
+      padding: 10px 18px;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
       font-weight: 600;
       background: var(--primary);
       color: white;
-      transition: background 0.3s, transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.3s;
       text-decoration: none;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .btn img {
+      width: 18px;
+      height: 18px;
+      margin-right: 8px;
     }
 
     .btn:hover {
-      transform: scale(1.05);
+      transform: scale(1.07);
+      box-shadow: 0 0 15px rgba(167,139,250,0.8);
     }
 
     .ig-btn {
-      background: #e1306c;
+      background: linear-gradient(135deg, #e1306c, #f77737, #fbc531);
       margin-left: 10px;
     }
-
-    .ig-btn:hover {
-      background: #c2185b;
-    }
-
     .wa-btn {
       background: #25d366;
       margin-left: 10px;
-    }
-
-    .wa-btn:hover {
-      background: #1ebe5b;
     }
 
     .mikasa {
@@ -126,10 +128,11 @@
       right: 15px;
       width: 120px;
       opacity: 0.9;
+      filter: drop-shadow(0 0 10px rgba(124,58,237,0.7));
     }
 
     @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
+      from {opacity: 0; transform: translateY(30px);}
       to {opacity: 1; transform: translateY(0);}
     }
   </style>
@@ -159,9 +162,13 @@
       <div id="clock"></div>
 
       <!-- Tombol -->
-      <button class="btn" onclick="toggleTheme()">🌗 Ganti Tema</button>
-      <a href="https://instagram.com/unless.asta" target="_blank" class="btn ig-btn">📷 Instagram</a>
-      <a href="https://wa.me/6281311921336" target="_blank" class="btn wa-btn">💬 WhatsApp</a>
+      <a href="#" onclick="toggleTheme()" class="btn">🌗 Ganti Tema</a>
+      <a href="https://instagram.com/unless.asta" target="_blank" class="btn ig-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"> Instagram
+      </a>
+      <a href="https://wa.me/6281311921336" target="_blank" class="btn wa-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"> WhatsApp
+      </a>
     </div>
 
     <!-- Mikasa -->
@@ -178,7 +185,7 @@
     setInterval(updateClock, 1000);
     updateClock();
 
-    // Toggle tema
+    // Toggle tema gelap/terang
     function toggleTheme() {
       document.body.classList.toggle("dark");
     }
