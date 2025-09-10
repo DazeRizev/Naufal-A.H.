@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biodata Naufal Aprilimo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: linear-gradient(135deg, #f0f4ff, #dbeafe);
+      --text: #1e293b;
+      --card: #ffffff;
+      --primary: #2563eb;
+      --shadow: rgba(0,0,0,0.1);
+    }
+
+    body.dark {
+      --bg: linear-gradient(135deg, #0f172a, #1e293b);
+      --text: #f1f5f9;
+      --card: #1e293b;
+      --primary: #60a5fa;
+      --shadow: rgba(0,0,0,0.5);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    .profile-card {
+      display: flex;
+      background: var(--card);
+      border-radius: 20px;
+      box-shadow: 0 12px 30px var(--shadow);
+      padding: 25px;
+      max-width: 900px;
+      width: 90%;
+      position: relative;
+      animation: slideUp 1s ease-out;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    .profile-img {
+      flex: 0 0 200px;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .profile-img img {
+      width: 180px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      transform: scale(0.9);
+      animation: fadeZoom 1s ease forwards;
+    }
+
+    .profile-info {
+      margin-left: 25px;
+      flex: 1;
+      opacity: 0;
+      animation: fadeInRight 1s ease forwards 0.5s;
+    }
+
+    .profile-info h2 {
+      margin: 0;
+      font-size: 28px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .profile-info p {
+      margin: 6px 0;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .description {
+      margin-top: 10px;
+      font-style: italic;
+      color: var(--text);
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    /* Jam */
+    #clock {
+      margin-top: 12px;
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 16px;
+    }
+
+    /* Tombol */
+    .btn {
+      margin-top: 15px;
+      padding: 10px 16px;
+      background: var(--primary);
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background: #1e40af;
+      transform: scale(1.05);
+    }
+
+    /* Mikasa Image */
+    .mikasa-wrapper {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      padding: 8px;
+      background: var(--card);
+      border: 2px solid var(--primary);
+      border-radius: 15px;
+      box-shadow: 0 6px 15px var(--shadow);
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards 1s;
+    }
+
+    .mikasa-wrapper img {
+      width: 120px;
+      border-radius: 10px;
+      display: block;
+    }
+
+    /* Animations */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeZoom {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <div class="profile-img">
+      <img src="foto.jpg" alt="Foto Profil">
+    </div>
+    <div class="profile-info">
+      <h2>Naufal Aprilimo</h2>
+      <p><b>Panggilan:</b> Pal</p>
+      <p><b>Kelas:</b> XI SMK</p>
+      <p><b>Hobi:</b> Lari pagi, Workout</p>
+      <p><b>Kesukaan:</b> Anime Attack on Titan (AOT), Musik mellow/chill</p>
+      <p><b>Cita-cita:</b> Ahli Jaringan</p>
+      <p class="description">
+        Seorang pelajar penuh semangat yang terus mengasah kemampuan dalam dunia teknologi, 
+        terutama jaringan komputer. Menjaga keseimbangan hidup dengan olahraga, musik, 
+        dan inspirasi dari anime. Siap menghadapi tantangan baru dengan tekad kuat.
+      </p>
+      <div id="clock"></div>
+      <button class="btn" onclick="toggleTheme()">🌗 Ganti Tema</button>
+    </div>
+
+    <!-- Mikasa dalam bingkai -->
+    <div class="mikasa-wrapper">
+      <img src="images.jpeg" alt="Mikasa Ackerman">
+    </div>
+  </div>
+
+  <script>
+    // Jam real-time
+    function updateClock() {
+      const now = new Date();
+      const time = now.toLocaleTimeString("id-ID", { hour12: false });
+      document.getElementById("clock").innerText = "⏰ " + time;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Ganti tema
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+    }
+  </script>
+</body>
+</html>
