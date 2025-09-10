@@ -56,8 +56,8 @@
     .profile-img img {
       width: 180px;
       height: 180px;
-      object-fit: cover;     /* biar gak penyet */
-      border-radius: 50%;    /* bulat */
+      object-fit: cover;
+      border-radius: 50%;   /* bulat */
       box-shadow: 0 8px 20px rgba(0,0,0,0.25);
       transform: scale(0.9);
       animation: fadeZoom 1s ease forwards;
@@ -110,11 +110,22 @@
       font-size: 14px;
       cursor: pointer;
       transition: background 0.3s, transform 0.2s;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .btn:hover {
       background: #1e40af;
       transform: scale(1.05);
+    }
+
+    .ig-btn {
+      background: #e1306c; /* warna IG */
+      margin-left: 10px;
+    }
+
+    .ig-btn:hover {
+      background: #c2185b;
     }
 
     /* Mikasa Image (atas kanan) */
@@ -175,6 +186,7 @@
       </p>
       <div id="clock"></div>
       <button class="btn" onclick="toggleTheme()">🌗 Ganti Tema</button>
+      <a href="https://instagram.com/unless.asta" target="_blank" class="btn ig-btn">📷 Instagram</a>
     </div>
 
     <!-- Mikasa di atas kanan -->
