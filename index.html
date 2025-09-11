@@ -5,150 +5,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Biodata Naufal Aprilimo</title>
   <style>
-    /* ===== Tema Default: Golden + White ===== */
-    :root {
-      --bg: #fffbea;
-      --card: #ffffff;
-      --text: #d4af37; /* white-golden */
-      --primary: #facc15; /* golden yellow */
-      --accent: #eab308;
-    }
-
-    /* ===== Tema Alternatif: Ungu Gelap + Hitam ===== */
-    body.dark {
-      --bg: #0b0b12;
-      --card: #1a1a24;
-      --text: #f5f3ff;
-      --primary: #7c3aed;
-      --accent: #a78bfa;
-    }
-
     body {
       margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, var(--bg), #1a1a24);
-      color: var(--text);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fff8dc, #ffd700);
+      color: #fff8dc;
+      transition: background 0.5s, color 0.5s;
       min-height: 100vh;
       overflow-x: hidden;
-      transition: background 0.6s ease, color 0.6s ease;
+    }
+
+    /* Default Light-Golden Theme */
+    body {
+      background: linear-gradient(135deg, #fff8dc, #ffd700);
+      color: #444;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+      background: linear-gradient(135deg, #0a001a, #220033);
+      color: #e0d4ff;
+      text-shadow: 0 0 10px rgba(170, 0, 255, 0.8);
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
     }
 
     .profile-container {
       display: flex;
-      background: var(--card);
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(250, 204, 21, 0.8);
-      padding: 25px;
-      width: 820px;
-      position: relative;
-      animation: fadeIn 1.2s ease-out;
-      transition: background 0.6s ease, box-shadow 0.6s ease;
+      align-items: center;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
     }
 
-    body.dark .profile-container {
-      box-shadow: 0 0 25px rgba(124, 58, 237, 0.6);
-    }
-
-    .profile-img {
-      flex: 0 0 200px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
-
-    .profile-img img {
-      width: 180px;
-      height: 180px;
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 15px;
       object-fit: cover;
-      border-radius: 50%;
-      box-shadow: 0 0 25px rgba(250, 204, 21, 0.7);
-      border: 3px solid var(--accent);
-      transition: transform 0.4s, box-shadow 0.6s;
-    }
-    body.dark .profile-img img {
-      box-shadow: 0 0 20px rgba(124, 58, 237, 0.6);
-    }
-    .profile-img img:hover {
-      transform: scale(1.08);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+      border: 3px solid gold;
     }
 
     .profile-info {
-      flex: 1;
-      margin-left: 25px;
+      margin-left: 20px;
     }
 
-    .profile-info h2 {
+    .profile-info h1 {
       margin: 0;
-      font-size: 30px;
-      color: var(--primary);
-      text-shadow: 0 0 12px rgba(250, 204, 21, 0.7);
-      transition: color 0.6s, text-shadow 0.6s;
-    }
-    body.dark .profile-info h2 {
-      text-shadow: 0 0 10px rgba(124,58,237,0.7);
+      font-size: 28px;
+      color: inherit;
     }
 
     .profile-info p {
-      margin: 5px 0;
-      line-height: 1.6;
+      margin: 8px 0;
+      font-size: 16px;
+      max-width: 600px;
     }
 
-    .description {
-      margin-top: 15px;
-      font-style: italic;
-      color: var(--accent);
+    .bio-data {
+      margin-top: 20px;
     }
 
-    #clock {
+    .bio-data ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .bio-data li {
+      padding: 8px 0;
+      border-bottom: 1px dashed rgba(255, 215, 0, 0.5);
+    }
+
+    /* Clock */
+    .clock {
       margin-top: 15px;
+      font-size: 20px;
       font-weight: bold;
-      font-size: 18px;
-      color: var(--accent);
-      text-shadow: 0 0 10px rgba(250,204,21,0.7);
-      transition: color 0.6s, text-shadow 0.6s;
-    }
-    body.dark #clock {
-      text-shadow: 0 0 8px rgba(167,139,250,0.8);
+      text-shadow: 0 0 12px rgba(255, 215, 0, 0.9);
     }
 
-    .btn {
-      margin-top: 15px;
-      padding: 10px 18px;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      font-weight: 600;
-      background: var(--primary);
-      color: white;
-      transition: transform 0.2s, box-shadow 0.3s, background 0.6s;
-      text-decoration: none;
-      display: inline-flex;
+    /* Social Buttons */
+    .socials {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .socials a {
+      display: flex;
       align-items: center;
+      background: rgba(255, 215, 0, 0.2);
+      padding: 10px 15px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      color: inherit;
+      transition: 0.3s;
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
     }
 
-    .btn img {
-      width: 18px;
-      height: 18px;
+    .socials a img {
+      width: 20px;
+      height: 20px;
       margin-right: 8px;
     }
 
-    .btn:hover {
-      transform: scale(1.07);
-      box-shadow: 0 0 15px var(--accent);
+    .socials a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 1);
     }
 
-    .ig-btn {
-      background: linear-gradient(135deg, #e1306c, #f77737, #fbc531);
-      margin-left: 10px;
-    }
-    .wa-btn {
-      background: #25d366;
-      margin-left: 10px;
-    }
-
+    /* Mikasa Image */
     .mikasa {
       position: absolute;
       top: 15px;
@@ -156,70 +128,137 @@
       width: 120px;
       opacity: 0.9;
       filter: drop-shadow(0 0 15px rgba(250,204,21,0.7));
-      transition: filter 0.6s;
-    }
-    body.dark .mikasa {
-      filter: drop-shadow(0 0 10px rgba(124,58,237,0.7));
+      transition: filter 0.6s, width 0.6s;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
+    /* Responsive for HP */
+    @media (max-width: 768px) {
+      .profile-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .profile-info {
+        margin-left: 0;
+        margin-top: 15px;
+      }
+
+      .mikasa {
+        width: 80px;
+        top: 5px;
+        right: 5px;
+      }
+    }
+
+    /* Toggle Switch */
+    .switch {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #444;
+      transition: 0.4s;
+      border-radius: 34px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(255,255,255,0.8);
+    }
+
+    input:checked + .slider {
+      background-color: gold;
+      box-shadow: 0 0 15px gold;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+      background-color: #fff8dc;
     }
   </style>
 </head>
 <body>
+  <!-- Saklar Tema -->
+  <label class="switch">
+    <input type="checkbox" id="themeSwitch">
+    <span class="slider"></span>
+  </label>
+
+  <header>
+    <h1>Biodata Diri</h1>
+  </header>
+
   <div class="profile-container">
-    <!-- Foto Profil -->
-    <div class="profile-img">
-      <img src="foto.jpg" alt="Foto Profil">
-    </div>
-
-    <!-- Info -->
+    <img src="foto.jpg" alt="Foto Profil" class="profile-pic">
     <div class="profile-info">
-      <h2>Naufal Aprilimo</h2>
-      <p><b>Panggilan:</b> Pal</p>
-      <p><b>Kelas:</b> XI SMK</p>
-      <p><b>Hobi:</b> Lari pagi, Workout</p>
-      <p><b>Kesukaan:</b> Anime Attack on Titan (AOT), Musik mellow/chill</p>
-      <p><b>Cita-cita:</b> Ahli Jaringan</p>
-      <p class="description">
-        Seorang pelajar penuh semangat yang terus mengasah kemampuan dalam dunia teknologi, 
-        terutama jaringan komputer. Menjaga keseimbangan hidup dengan olahraga, musik, 
-        dan inspirasi dari anime. Siap menghadapi tantangan baru dengan tekad kuat.
-      </p>
+      <h1>Naufal Aprilimo</h1>
+      <p>Seorang pelajar SMK kelas 11 yang penuh semangat. Tertarik pada teknologi, jaringan, dan pengembangan diri. Suka olahraga lari untuk menjaga stamina, serta gemar menikmati musik mellow saat malam untuk menenangkan pikiran.</p>
+      
+      <div class="bio-data">
+        <ul>
+          <li><b>Nama:</b> Naufal Aprilimo</li>
+          <li><b>Kelas:</b> XI SMK</li>
+          <li><b>Hobi:</b> Lari, Musik, Workout</li>
+          <li><b>Cita-cita:</b> Network Administrator & Developer</li>
+        </ul>
+      </div>
 
-      <!-- Jam -->
-      <div id="clock"></div>
+      <div class="clock" id="clock"></div>
 
-      <!-- Tombol -->
-      <a href="#" onclick="toggleTheme()" class="btn">🌗 Ganti Tema</a>
-      <a href="https://instagram.com/unless.asta" target="_blank" class="btn ig-btn">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"> Instagram
-      </a>
-      <a href="https://wa.me/6281311921336" target="_blank" class="btn wa-btn">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"> WhatsApp
-      </a>
+      <div class="socials">
+        <a href="https://instagram.com/unless.asta" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"> Instagram
+        </a>
+        <a href="https://wa.me/6281311921336" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"> WhatsApp
+        </a>
+      </div>
     </div>
-
-    <!-- Mikasa -->
-    <img src="images.jpeg" alt="Mikasa Ackerman" class="mikasa">
   </div>
 
+  <!-- Mikasa Image -->
+  <img src="images.jpeg" alt="Mikasa Ackerman" class="mikasa">
+
   <script>
-    // Jam real-time
+    // Clock
     function updateClock() {
       const now = new Date();
-      const time = now.toLocaleTimeString("id-ID");
-      document.getElementById("clock").textContent = "⏰ " + time;
+      document.getElementById("clock").innerText = now.toLocaleTimeString();
     }
     setInterval(updateClock, 1000);
     updateClock();
 
-    // Toggle tema (golden <-> ungu gelap)
-    function toggleTheme() {
-      document.body.classList.toggle("dark");
-    }
+    // Theme Switch
+    const themeSwitch = document.getElementById("themeSwitch");
+    themeSwitch.addEventListener("change", () => {
+      document.body.classList.toggle("dark-mode");
+    });
   </script>
 </body>
 </html>
