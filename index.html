@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -120,15 +121,28 @@
       box-shadow: 0 0 20px rgba(255, 215, 0, 1);
     }
 
-    /* Mikasa Image */
-    .mikasa {
+    /* Mikasa Frame */
+    .mikasa-frame {
       position: absolute;
       top: 15px;
       right: 15px;
+      text-align: center;
+    }
+
+    .mikasa {
       width: 120px;
-      opacity: 0.9;
-      filter: drop-shadow(0 0 15px rgba(250,204,21,0.7));
-      transition: filter 0.6s, width 0.6s;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(250,204,21,0.8);
+      border: 3px solid gold;
+    }
+
+    .waifu-text {
+      margin-top: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      color: gold;
+      text-shadow: 0 0 8px rgba(250,204,21,0.9);
+      font-family: 'Poppins', sans-serif;
     }
 
     /* Responsive for HP */
@@ -145,8 +159,10 @@
 
       .mikasa {
         width: 80px;
-        top: 5px;
-        right: 5px;
+      }
+
+      .waifu-text {
+        font-size: 12px;
       }
     }
 
@@ -242,8 +258,11 @@
     </div>
   </div>
 
-  <!-- Mikasa Image -->
-  <img src="images.jpeg" alt="Mikasa Ackerman" class="mikasa">
+  <!-- Mikasa Frame -->
+  <div class="mikasa-frame">
+    <img src="images.jpeg" alt="Mikasa Ackerman" class="mikasa">
+    <p class="waifu-text">My Waifu ❤️</p>
+  </div>
 
   <script>
     // Clock
